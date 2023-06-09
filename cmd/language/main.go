@@ -15,10 +15,20 @@ type FastFoodChain struct {
 	secretFormula  string
 }
 
+type Company struct {
+	CEO         string
+	Revenue     float32
+	secretSauce string
+}
+
 func (w *Water) printWater() {
 	fmt.Println("\tBrand:", w.brand)
 	fmt.Println("\tPrice (MMK):", w.price)
 	fmt.Println("\tCapacity (in L):", w.capacity_in_litres)
+}
+
+func (c *Company) changeCEO(name string) {
+	c.CEO = name
 }
 
 func main() {
@@ -28,19 +38,15 @@ func main() {
 		capacity_in_litres: 1,
 	}
 	Alpine.printWater()
+	fmt.Println()
 
-	fmt.Println("Hello World")
-
-	Tesla := struct {
-		CEO                  string
-		Revenue              float32
-		manufacturingProcess string
-	}{
-		CEO:                  "Elon Musk",
-		Revenue:              36,
-		manufacturingProcess: "who knows what happens inside tesla gigafactories!",
+	twitter := Company{
+		CEO:         "Jack Dorsey",
+		Revenue:     4,
+		secretSauce: "None",
 	}
-	fmt.Println(Tesla.CEO)
-	fmt.Println(Tesla.Revenue, "billion dollars")
-	fmt.Println(Tesla.manufacturingProcess)
+	fmt.Println(twitter)
+	twitter.changeCEO("Elon Musk")
+	fmt.Println(twitter.CEO)
+	fmt.Println(twitter)
 }
