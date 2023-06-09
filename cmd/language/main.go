@@ -27,4 +27,16 @@ func main() {
 
 	fmt.Println("Hello World")
 
+	Tesla := struct {
+		CEO                  string
+		Revenue              float32
+		manufacturingProcess string
+	}{
+		CEO:                  "Elon Musk",
+		Revenue:              36,
+		manufacturingProcess: "who knows what happens inside tesla gigafactories!",
+	}
+	fmt.Println(Tesla.CEO)
+	fmt.Println(Tesla.Revenue, "billion dollars")
+	fmt.Println(Tesla.manufacturingProcess)
 }
