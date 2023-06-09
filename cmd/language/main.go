@@ -15,15 +15,19 @@ type FastFoodChain struct {
 	secretFormula  string
 }
 
+func (w *Water) printWater() {
+	fmt.Println("\tBrand:", w.brand)
+	fmt.Println("\tPrice (MMK):", w.price)
+	fmt.Println("\tCapacity (in L):", w.capacity_in_litres)
+}
+
 func main() {
 	Alpine := Water{
 		brand:              "Alpine",
 		price:              300,
 		capacity_in_litres: 1,
 	}
-	fmt.Println(Alpine.brand)
-	fmt.Println(Alpine.price)
-	fmt.Println(Alpine.capacity_in_litres)
+	Alpine.printWater()
 
 	fmt.Println("Hello World")
 
