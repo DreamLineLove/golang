@@ -16,9 +16,11 @@ type FastFoodChain struct {
 }
 
 type Company struct {
-	CEO         string
-	Revenue     float32
-	secretSauce string
+	CEO               string
+	Revenue           float32
+	NumberOfEmployees int
+	AveragePay        float32
+	secretSauce       string
 }
 
 func (w *Water) printWater() {
@@ -41,12 +43,20 @@ func main() {
 	fmt.Println()
 
 	twitter := Company{
-		CEO:         "Jack Dorsey",
-		Revenue:     4,
-		secretSauce: "None",
+		CEO:               "Jack Dorsey",
+		Revenue:           4,
+		secretSauce:       "None",
+		NumberOfEmployees: 2000,
+		AveragePay:        100000,
 	}
 	fmt.Println(twitter)
 	twitter.changeCEO("Elon Musk")
 	fmt.Println(twitter.CEO)
 	fmt.Println(twitter)
+	renumerationInMillions := twitter.calculateTotalAnnualEmployeeCompensation() / 1000000
+	fmt.Println(renumerationInMillions, "million dollars")
+}
+
+func (c Company) calculateTotalAnnualEmployeeCompensation() float32 {
+	return float32(c.NumberOfEmployees) * c.AveragePay
 }
