@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 type Water struct {
 	brand              string
@@ -23,10 +26,16 @@ type Company struct {
 	secretSauce       string
 }
 
-func (w *Water) printWater() {
-	fmt.Println("\tBrand:", w.brand)
-	fmt.Println("\tPrice (MMK):", w.price)
-	fmt.Println("\tCapacity (in L):", w.capacity_in_litres)
+// func (w *Water) printWater() {
+// 	fmt.Println("\tBrand:", w.brand)
+// 	fmt.Println("\tPrice (MMK):", w.price)
+// 	fmt.Println("\tCapacity (in L):", w.capacity_in_litres)
+// }
+
+func (w Water) String() string {
+	priceStringConversion := strconv.FormatFloat(float64(w.price), 'f', -1, 32)
+	capacityStringConversion := strconv.FormatFloat(float64(w.capacity_in_litres), 'f', -1, 32)
+	return "\tBrand: " + w.brand + "\n\tPrice: (MMK): " + priceStringConversion + "\n\tCapacity (in Litres): " + capacityStringConversion
 }
 
 func (c *Company) changeCEO(name string) {
@@ -39,7 +48,7 @@ func main() {
 		price:              300,
 		capacity_in_litres: 1,
 	}
-	Alpine.printWater()
+	fmt.Println(Alpine)
 	fmt.Println()
 
 	twitter := Company{
